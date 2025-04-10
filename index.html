@@ -16,7 +16,24 @@
     <meta name="twitter:title" content="1FAR - Affordable Web Design for Small Businesses">
     <meta name="twitter:description" content="One-time fee web design packages with no monthly hosting costs. Grow your business with 1FAR’s all-inclusive services.">
     <meta name="twitter:image" content="https://onefar.co.za/assets/logo.png">
-    <link rel="icon" type="image/png" href="/assets/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/assets/1faricon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="manifest" href="/assets/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/assets/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
@@ -98,14 +115,11 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(10, 10, 27, 0.3);
-            backdrop-filter: blur(10px);
             padding: 1rem;
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             transition: opacity 0.3s ease, transform 0.3s;
         }
 
@@ -181,7 +195,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 4rem 1rem;
+            padding: 2rem 1rem;
             position: relative;
             overflow: hidden;
             opacity: 0;
@@ -213,7 +227,7 @@
             background: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
             z-index: 2;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
 
         .hero .title-container {
@@ -227,7 +241,7 @@
 
         .hero .title-container span {
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2rem, 6.5vw, 4rem);
+            font-size: clamp(1.5rem, 6vw, 4rem);
             background: linear-gradient(90deg, #00d4ff, #ff007a, #ffaa00, #00d4ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -239,15 +253,15 @@
 
         .hero .tagline {
             font-family: 'Roboto', sans-serif;
-            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-size: clamp(0.9rem, 2.5vw, 1.5rem);
             color: var(--text-muted);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .hero .cta-button {
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 1rem 2.5rem;
+            padding: 0.8rem 2rem;
             text-decoration: none;
             border-radius: 30px;
             font-family: 'Orbitron', sans-serif;
@@ -257,7 +271,7 @@
             position: relative;
             overflow: hidden;
             z-index: 2;
-            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
         }
 
         .hero .cta-button::before {
@@ -285,7 +299,7 @@
         }
 
         section {
-            padding: 3rem 1rem;
+            padding: 2rem 1rem;
             max-width: 1200px;
             margin: 0 auto;
             scroll-margin-top: 80px;
@@ -311,12 +325,12 @@
 
         section h2 {
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(1.5rem, 6vw, 3rem);
+            font-size: clamp(1.2rem, 5vw, 3rem);
             text-align: center;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             text-transform: uppercase;
             position: relative;
             z-index: 2;
@@ -344,26 +358,26 @@
             background: rgba(26, 26, 46, 0.5);
             backdrop-filter: blur(10px);
             border-radius: 20px;
-            padding: 2rem;
+            padding: 1.5rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            max-width: 800px;
+            max-width: 90%;
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
         .intro p {
             line-height: 1.8;
             color: var(--text-muted);
-            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            font-size: clamp(0.85rem, 2.2vw, 1rem);
             margin-bottom: 1rem;
         }
 
         .pricing {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
             width: 100%;
-            max-width: 1200px;
+            max-width: 100%;
             margin: 0 auto;
         }
 
@@ -372,7 +386,7 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 15px;
-            padding: 2rem;
+            padding: 1.5rem;
             text-align: center;
             position: relative;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -392,23 +406,23 @@
             transform: translateX(-50%);
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 0.8rem;
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            border-radius: 0 0 10px 10px;
+            border-radius: 0 0 8px 8px;
         }
 
         .pricing-card h3 {
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
             margin-bottom: 0.5rem;
             color: var(--text-light);
         }
 
         .pricing-card .price {
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2rem, 5vw, 3rem);
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -417,16 +431,16 @@
 
         .pricing-card ul {
             list-style: none;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             text-align: left;
             color: var(--text-muted);
-            font-size: clamp(0.9rem, 2vw, 1rem);
+            font-size: clamp(0.8rem, 2vw, 0.95rem);
         }
 
         .pricing-card ul li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             position: relative;
-            padding-left: 1.5rem;
+            padding-left: 1.2rem;
         }
 
         .pricing-card ul li::before {
@@ -438,18 +452,20 @@
         }
 
         .pricing-card .cta-button {
+            display: inline-block;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 0.8rem 1.5rem;
+            padding: 0.6rem 1.2rem;
             text-decoration: none;
-            border-radius: 30px;
+            border-radius: 25px;
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             text-transform: uppercase;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
             overflow: hidden;
-            font-size: clamp(0.9rem, 2vw, 1rem);
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            white-space: nowrap;
         }
 
         .pricing-card .cta-button::before {
@@ -468,14 +484,15 @@
         }
 
         .pricing-card .cta-button:hover, .pricing-card .cta-button:focus {
-            transform: scale(1.1);
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
         }
 
         .additional-info {
-            margin-top: 2rem;
+            margin-top: 1.5rem;
             text-align: center;
             color: var(--text-muted);
-            font-size: clamp(0.9rem, 2vw, 1rem);
+            font-size: clamp(0.85rem, 2.2vw, 1rem);
         }
 
         .contact {
@@ -485,18 +502,18 @@
 
         .contact p {
             color: var(--text-muted);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             max-width: 90%;
             margin-left: auto;
             margin-right: auto;
-            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+            font-size: clamp(0.85rem, 2.2vw, 1rem);
         }
 
         .contact-links {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 1rem;
+            gap: 0.8rem;
             padding: 0 0.5rem;
         }
 
@@ -505,10 +522,10 @@
             text-decoration: none;
             font-weight: 600;
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
-            padding: 0.5rem 1rem;
+            font-size: clamp(0.8rem, 2.2vw, 1rem);
+            padding: 0.4rem 0.8rem;
             border: 1px solid var(--primary-color);
-            border-radius: 25px;
+            border-radius: 20px;
             transition: color 0.3s;
             position: relative;
             overflow: hidden;
@@ -539,7 +556,7 @@
             position: relative;
             background: rgba(26, 26, 46, 0.5);
             backdrop-filter: blur(10px);
-            padding: 2rem 1rem;
+            padding: 1.5rem 1rem;
             text-align: center;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             z-index: 1;
@@ -549,21 +566,21 @@
 
         footer p {
             color: var(--text-muted);
-            font-size: clamp(0.8rem, 2vw, 1rem);
-            margin-bottom: 1rem;
+            font-size: clamp(0.75rem, 1.8vw, 0.9rem);
+            margin-bottom: 0.8rem;
         }
 
         footer .footer-links {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 1rem;
+            gap: 0.8rem;
         }
 
         footer a {
             color: var(--primary-color);
             text-decoration: none;
-            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            font-size: clamp(0.8rem, 2vw, 1rem);
             transition: color 0.3s;
         }
 
@@ -573,6 +590,9 @@
 
         @media (min-width: 768px) {
             header {
+                background: none;
+                backdrop-filter: none;
+                border-bottom: none;
                 padding: 1rem 2rem;
                 justify-content: center;
             }
@@ -597,9 +617,71 @@
                 padding: 5rem 3rem;
             }
 
-            .contact-links {
+            .pricing {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
                 gap: 2rem;
+            }
+
+            .contact-links {
+                gap: 1.5rem;
                 padding: 0;
+            }
+        }
+
+        @media (max-width: 767px) {
+            nav a {
+                font-size: 1rem;
+            }
+
+            .hero {
+                padding: 2rem 0.5rem;
+            }
+
+            .hero .title-container span {
+                font-size: clamp(1.2rem, 5vw, 3rem);
+            }
+
+            .hero .tagline {
+                font-size: 0.9rem;
+            }
+
+            .hero .cta-button {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            section {
+                padding: 1.5rem 0.5rem;
+            }
+
+            .intro {
+                padding: 1rem;
+            }
+
+            .pricing-card {
+                padding: 1rem;
+            }
+
+            .pricing-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .pricing-card .price {
+                font-size: 1.8rem;
+            }
+
+            .pricing-card ul {
+                margin-bottom: 1rem;
+            }
+
+            .pricing-card ul li {
+                font-size: 0.85rem;
+            }
+
+            .pricing-card .cta-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -655,7 +737,7 @@
                     <li>Google Analytics and Google Webmaster integration</li>
                     <li>Training support on how to update your website and add new content to it</li>
                 </ul>
-                <a href="mailto:info@onefar.co.za?subject=Silver Package Inquiry" class="cta-button">Email Us About The Silver Package</a>
+                <a href="mailto:1fardigital@gmail.com?subject=Silver Package Inquiry" class="cta-button">Email Us About The Silver Package</a>
             </div>
             <div class="pricing-card best-value">
                 <h3>Gold Package</h3>
@@ -668,7 +750,7 @@
                     <li>Off Page Citations for local SEO (local directory listings) in addition to on-page SEO</li>
                     <li>Up to 10 pages fully customized to your demands (instead of 5)</li>
                 </ul>
-                <a href="mailto:info@onefar.co.za?subject=Gold Package Inquiry" class="cta-button">Email Us About The Gold Package</a>
+                <a href="mailto:1fardigital@gmail.com?subject=Gold Package Inquiry" class="cta-button">Email Us About The Gold Package</a>
             </div>
             <div class="pricing-card">
                 <h3>Platinum Package</h3>
@@ -680,7 +762,7 @@
                     <li>Each product variation with its own image counts as 1 full product</li>
                     <li>Additional batches of 1 to 75 products over the initial 75 are R2500 per batch</li>
                 </ul>
-                <a href="mailto:info@onefar.co.za?subject=Platinum Package Inquiry" class="cta-button">Email Us About The Platinum Package</a>
+                <a href="mailto:1fardigital@gmail.com?subject=Platinum Package Inquiry" class="cta-button">Email Us About The Platinum Package</a>
             </div>
         </div>
         <div class="additional-info">
@@ -691,16 +773,16 @@
         <h2>Get in Touch</h2>
         <p>Ready to grow your business? Contact us today!</p>
         <div class="contact-links">
-            <a href="mailto:info@onefar.co.za">Email</a>
-            <a href="tel:+27832227144">Call Us</a>
-            <a href="https://wa.me/27832227144" title="Chat on WhatsApp">WhatsApp</a>
+            <a href="mailto:1fardigital@gmail.com">Email</a>
+            <a href="tel:+27815307738">Call Us</a>
+            <a href="https://wa.me/27815307738" title="Chat on WhatsApp">WhatsApp</a>
         </div>
     </section>
     <footer>
         <p>© 2025 1FAR - One For A Reason</p>
-        <p>Centurion, South Africa</p>
+        <p>Veld St, Glen Marais, Kempton Park, 1619, South Africa</p>
         <div class="footer-links">
-            <a href="mailto:info@onefar.co.za">Contact Us</a>
+            <a href="mailto:1fardigital@gmail.com">Contact Us</a>
         </div>
     </footer>
 
