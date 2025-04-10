@@ -73,6 +73,20 @@
             text-rendering: optimizeLegibility;
         }
 
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(0, 212, 255, 0.05) 1px, transparent 1px),
+                        linear-gradient(0deg, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
         #particles-js {
             position: fixed;
             top: 0;
@@ -108,6 +122,41 @@
             inset: 0;
             background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
             z-index: -1;
+        }
+
+        .glow-orb {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, var(--primary-color), transparent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.7;
+            filter: blur(5px);
+            transition: transform 0.1s ease;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            padding: 0.8rem;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .whatsapp-float:hover, .whatsapp-float:focus {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.8);
+        }
+
+        .whatsapp-float img {
+            width: 40px;
+            height: 40px;
         }
 
         header {
@@ -153,7 +202,7 @@
             font-size: clamp(1rem, 3vw, 1.2rem);
             text-transform: uppercase;
             position: relative;
-            transition: color 0.3s;
+            transition: color 0.3s, text-shadow 0.3s;
         }
 
         nav a::after {
@@ -173,6 +222,7 @@
 
         nav a:hover, nav a:focus {
             color: var(--primary-color);
+            text-shadow: 0 0 10px var(--primary-color);
         }
 
         .hamburger {
@@ -180,12 +230,13 @@
             cursor: pointer;
             font-size: clamp(1.5rem, 4vw, 2rem);
             color: var(--text-light);
-            transition: transform 0.3s;
+            transition: transform 0.3s, text-shadow 0.3s;
             padding: 0.5rem;
         }
 
         .hamburger:hover, .hamburger:focus {
             transform: scale(1.2);
+            text-shadow: 0 0 10px var(--primary-color);
         }
 
         .hero {
@@ -228,6 +279,7 @@
             border-radius: 10px;
             z-index: 2;
             margin-bottom: 1rem;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
         }
 
         .hero .title-container {
@@ -249,6 +301,12 @@
             z-index: 2;
             letter-spacing: 2px;
             font-weight: 900;
+            animation: neonGlow 2s infinite alternate;
+        }
+
+        @keyframes neonGlow {
+            0% { text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color), 0 0 20px var(--secondary-color); }
+            100% { text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color), 0 0 30px var(--secondary-color); }
         }
 
         .hero .tagline {
@@ -256,6 +314,7 @@
             font-size: clamp(0.9rem, 2.5vw, 1.5rem);
             color: var(--text-muted);
             margin-bottom: 1.5rem;
+            text-shadow: 0 0 5px rgba(0, 212, 255, 0.3);
         }
 
         .hero .cta-button {
@@ -267,7 +326,7 @@
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             text-transform: uppercase;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
             overflow: hidden;
             z-index: 2;
@@ -291,6 +350,7 @@
 
         .hero .cta-button:hover, .hero .cta-button:focus {
             transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
         }
 
         @keyframes fadeIn {
@@ -312,6 +372,9 @@
             align-items: center;
             opacity: 0;
             animation: sectionFadeIn 0.8s ease forwards;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
         }
 
         @keyframes sectionFadeIn {
@@ -334,6 +397,7 @@
             text-transform: uppercase;
             position: relative;
             z-index: 2;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
         }
 
         section h2::after {
@@ -363,6 +427,7 @@
             max-width: 90%;
             text-align: center;
             margin-bottom: 2rem;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
         }
 
         .intro p {
@@ -370,6 +435,7 @@
             color: var(--text-muted);
             font-size: clamp(0.85rem, 2.2vw, 1rem);
             margin-bottom: 1rem;
+            text-shadow: 0 0 5px rgba(0, 212, 255, 0.1);
         }
 
         .pricing {
@@ -391,11 +457,12 @@
             position: relative;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
         }
 
         .pricing-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.4);
         }
 
         .pricing-card.best-value::before {
@@ -411,6 +478,7 @@
             font-size: 0.8rem;
             text-transform: uppercase;
             border-radius: 0 0 8px 8px;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
         }
 
         .pricing-card h3 {
@@ -418,6 +486,7 @@
             font-size: clamp(1rem, 2.5vw, 1.5rem);
             margin-bottom: 0.5rem;
             color: var(--text-light);
+            text-shadow: 0 0 5px rgba(0, 212, 255, 0.2);
         }
 
         .pricing-card .price {
@@ -427,6 +496,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
         }
 
         .pricing-card ul {
@@ -449,6 +519,7 @@
             left: 0;
             color: var(--primary-color);
             font-weight: bold;
+            text-shadow: 0 0 5px rgba(0, 212, 255, 0.2);
         }
 
         .pricing-card .cta-button {
@@ -469,6 +540,7 @@
             text-overflow: ellipsis;
             max-width: 90%;
             margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
         }
 
         .pricing-card .cta-button::before {
@@ -488,7 +560,7 @@
 
         .pricing-card .cta-button:hover, .pricing-card .cta-button:focus {
             transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
         }
 
         .additional-info {
@@ -496,6 +568,7 @@
             text-align: center;
             color: var(--text-muted);
             font-size: clamp(0.85rem, 2.2vw, 1rem);
+            text-shadow: 0 0 5px rgba(0, 212, 255, 0.1);
         }
 
         .contact {
@@ -510,6 +583,7 @@
             margin-left: auto;
             margin-right: auto;
             font-size: clamp(0.85rem, 2.2vw, 1rem);
+            text-shadow: 0 0 5px rgba(0, 212, 255, 0.1);
         }
 
         .contact-links {
@@ -529,10 +603,11 @@
             padding: 0.4rem 0.8rem;
             border: 1px solid var(--primary-color);
             border-radius: 20px;
-            transition: color 0.3s;
+            transition: color 0.3s, box-shadow 0.3s;
             position: relative;
             overflow: hidden;
             z-index: 2;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
         }
 
         .contact a::before {
@@ -553,24 +628,27 @@
 
         .contact a:hover, .contact a:focus {
             color: var(--secondary-color);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
         }
 
         footer {
             position: relative;
-            background: rgba(26, 26, 46, 0.5);
+            background: linear-gradient(180deg, rgba(26, 26, 46, 0.5), rgba(0, 212, 255, 0.1));
             backdrop-filter: blur(10px);
             padding: 1.5rem 1rem;
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
             z-index: 1;
             width: 100%;
             margin: 0 auto;
+            box-shadow: 0 -5px 20px rgba(0, 212, 255, 0.2);
         }
 
         footer p {
             color: var(--text-muted);
             font-size: clamp(0.75rem, 1.8vw, 0.9rem);
             margin-bottom: 0.8rem;
+            text-shadow: 0 0 5px rgba(0, 212, 255, 0.1);
         }
 
         footer .footer-links {
@@ -584,11 +662,28 @@
             color: var(--primary-color);
             text-decoration: none;
             font-size: clamp(0.8rem, 2vw, 1rem);
-            transition: color 0.3s;
+            position: relative;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+
+        footer a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: width 0.3s;
+        }
+
+        footer a:hover::after, footer a:focus::after {
+            width: 100%;
         }
 
         footer a:hover, footer a:focus {
             color: var(--secondary-color);
+            text-shadow: 0 0 10px var(--secondary-color);
         }
 
         @media (min-width: 768px) {
@@ -693,6 +788,17 @@
                 font-size: clamp(0.7rem, 1.5vw, 0.85rem);
                 max-width: 95%;
             }
+
+            .whatsapp-float {
+                bottom: 15px;
+                left: 15px;
+                padding: 0.6rem;
+            }
+
+            .whatsapp-float img {
+                width: 30px;
+                height: 30px;
+            }
         }
     </style>
 </head>
@@ -701,6 +807,10 @@
     <div class="background">
         <video class="background-video" src="/assets/cinematiclanding.mp4" autoplay loop muted playsinline preload="auto"></video>
     </div>
+    <div class="glow-orb" id="glow-orb"></div>
+    <a href="https://wa.me/27815307738" class="whatsapp-float" title="Chat on WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon">
+    </a>
     <header>
         <div class="hamburger" role="button" aria-expanded="false" aria-label="Toggle navigation">☰</div>
         <nav>
@@ -719,7 +829,7 @@
         <a href="#pricing" class="cta-button">View Pricing</a>
     </section>
     <section id="services">
-        <h2>Website Design Cost, Services & Pricing</h2>
+        <h2>Design Cost, Services & Pricing</h2>
         <div class="intro">
             <p>The goal of our service is not just to build you a website BUT to create a unique online presence for your business and have that online presence translate into new leads, customers, and ultimately, cold, hard cash in your bank account. Getting a website should be seen as an investment and as with all investments, a return on that investment should be expected.</p>
             <p>Immediately below are our all-inclusive web design packages. If you do not see something that you really want incorporated into your website design, simply let us know and we can easily come up with a package customized just for your needs. We focus on strategic web design. We will look into what your niche target market is searching for on the internet and we will design each of your web pages to target exactly what your target market is searching for!</p>
@@ -747,7 +857,7 @@
                     <li>Google Analytics and Google Webmaster integration</li>
                     <li>Training support on how to update your website and add new content to it</li>
                 </ul>
-                <a href="mailto:1fardigital@gmail.com?subject=Silver Package Inquiry" class="cta-button">Email Us About The Silver Package</a>
+                <a href="mailto:1fardigital@gmail.com?subject=Silver Package Inquiry" class="cta-button">Email Us</a>
             </div>
             <div class="pricing-card best-value">
                 <h3>Gold Package</h3>
@@ -760,7 +870,7 @@
                     <li>Off Page Citations for local SEO (local directory listings) in addition to on-page SEO</li>
                     <li>Up to 10 pages fully customized to your demands (instead of 5)</li>
                 </ul>
-                <a href="mailto:1fardigital@gmail.com?subject=Gold Package Inquiry" class="cta-button">Email Us About The Gold Package</a>
+                <a href="mailto:1fardigital@gmail.com?subject=Gold Package Inquiry" class="cta-button">Email Us</a>
             </div>
             <div class="pricing-card">
                 <h3>Platinum Package</h3>
@@ -772,7 +882,7 @@
                     <li>Each product variation with its own image counts as 1 full product</li>
                     <li>Additional batches of 1 to 75 products over the initial 75 are R2500 per batch</li>
                 </ul>
-                <a href="mailto:1fardigital@gmail.com?subject=Platinum Package Inquiry" class="cta-button">Email Us About The Platinum Package</a>
+                <a href="mailto:1fardigital@gmail.com?subject=Platinum Package Inquiry" class="cta-button">Email Us</a>
             </div>
         </div>
         <div class="additional-info">
@@ -868,6 +978,11 @@
 
         window.addEventListener('load', () => {
             document.querySelector('.hero').classList.add('visible');
+        });
+
+        const glowOrb = document.getElementById('glow-orb');
+        document.addEventListener('mousemove', (e) => {
+            glowOrb.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px)`;
         });
     </script>
 </body>
