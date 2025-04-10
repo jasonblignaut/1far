@@ -120,21 +120,8 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 0, 122, 0.1));
             z-index: -1;
-        }
-
-        .glow-orb {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            background: radial-gradient(circle, var(--primary-color), transparent);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 1000;
-            opacity: 0.7;
-            filter: blur(5px);
-            transition: transform 0.1s ease;
         }
 
         .whatsapp-float {
@@ -142,16 +129,11 @@
             bottom: 20px;
             left: 20px;
             z-index: 1000;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            padding: 0.8rem;
-            border-radius: 50%;
-            box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s;
         }
 
         .whatsapp-float:hover, .whatsapp-float:focus {
             transform: scale(1.1);
-            box-shadow: 0 0 25px rgba(0, 212, 255, 0.8);
         }
 
         .whatsapp-float img {
@@ -279,7 +261,6 @@
             border-radius: 10px;
             z-index: 2;
             margin-bottom: 1rem;
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
         }
 
         .hero .title-container {
@@ -473,11 +454,11 @@
             transform: translateX(-50%);
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 0.4rem 0.8rem;
+            padding: 0.4rem 1rem;
             font-family: 'Orbitron', sans-serif;
             font-size: 0.8rem;
             text-transform: uppercase;
-            border-radius: 0 0 8px 8px;
+            border-radius: 0;
             box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
         }
 
@@ -487,6 +468,7 @@
             margin-bottom: 0.5rem;
             color: var(--text-light);
             text-shadow: 0 0 5px rgba(0, 212, 255, 0.2);
+            margin-top: 1rem; /* Added to prevent overlap with Best Value */
         }
 
         .pricing-card .price {
@@ -792,7 +774,6 @@
             .whatsapp-float {
                 bottom: 15px;
                 left: 15px;
-                padding: 0.6rem;
             }
 
             .whatsapp-float img {
@@ -807,7 +788,6 @@
     <div class="background">
         <video class="background-video" src="/assets/cinematiclanding.mp4" autoplay loop muted playsinline preload="auto"></video>
     </div>
-    <div class="glow-orb" id="glow-orb"></div>
     <a href="https://wa.me/27815307738" class="whatsapp-float" title="Chat on WhatsApp">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon">
     </a>
@@ -909,18 +889,18 @@
     <script>
         particlesJS('particles-js', {
             particles: {
-                number: { value: 40, density: { enable: true, value_area: 1000 } },
-                color: { value: '#00d4ff' },
+                number: { value: 60, density: { enable: true, value_area: 800 } },
+                color: { value: ['#00d4ff', '#ff007a', '#ffaa00'] },
                 shape: { type: 'circle' },
-                opacity: { value: 0.4, random: true },
-                size: { value: 2, random: true },
-                line_linked: { enable: true, distance: 120, color: '#00d4ff', opacity: 0.3, width: 1 },
-                move: { enable: true, speed: 1.5, direction: 'none', random: false, straight: false, out_mode: 'out' }
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: '#00d4ff', opacity: 0.2, width: 1 },
+                move: { enable: true, speed: 2, direction: 'none', random: true, straight: false, out_mode: 'out' }
             },
             interactivity: {
                 detect_on: 'canvas',
-                events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true },
-                modes: { repulse: { distance: 80, duration: 0.4 }, push: { particles_nb: 3 } }
+                events: { onhover: { enable: true, mode: 'grab' }, onclick: { enable: true, mode: 'push' }, resize: true },
+                modes: { grab: { distance: 140, line_linked: { opacity: 0.5 } }, push: { particles_nb: 4 } }
             },
             retina_detect: true
         });
@@ -978,11 +958,6 @@
 
         window.addEventListener('load', () => {
             document.querySelector('.hero').classList.add('visible');
-        });
-
-        const glowOrb = document.getElementById('glow-orb');
-        document.addEventListener('mousemove', (e) => {
-            glowOrb.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px)`;
         });
     </script>
 </body>
