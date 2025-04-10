@@ -36,9 +36,9 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&family=Exo+2:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" defer></script>
     <title>1FAR - One For A Reason | Affordable Web Design for Small Businesses</title>
     <style>
         :root {
@@ -126,6 +126,13 @@
             background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(255, 0, 122, 0.15));
             z-index: -1;
             opacity: 0.7;
+            animation: shimmer 15s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(255, 0, 122, 0.15)); }
+            50% { background: linear-gradient(135deg, rgba(255, 0, 122, 0.15), rgba(0, 212, 255, 0.15)); }
+            100% { background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(255, 0, 122, 0.15)); }
         }
 
         .whatsapp-float {
@@ -189,11 +196,11 @@
             color: var(--text-light);
             text-decoration: none;
             margin: 1rem 0;
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Exo 2', sans-serif;
             font-size: clamp(1rem, 3vw, 1.3rem);
             text-transform: uppercase;
             position: relative;
-            transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease, letter-spacing 0.3s ease;
         }
 
         nav a::after {
@@ -216,6 +223,7 @@
             color: var(--primary-color);
             transform: scale(1.1) translateY(-2px);
             text-shadow: 0 0 15px var(--primary-color);
+            letter-spacing: 1px;
         }
 
         .hamburger {
@@ -291,7 +299,7 @@
         }
 
         .hero .title-container span {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Exo 2', sans-serif;
             font-size: clamp(1.5rem, 6vw, 4rem);
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--tertiary-color));
             -webkit-background-clip: text;
@@ -329,7 +337,7 @@
             padding: 1rem 2.5rem;
             text-decoration: none;
             border-radius: 50px;
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Exo 2', sans-serif;
             font-weight: 700;
             text-transform: uppercase;
             transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
@@ -350,13 +358,14 @@
             background: rgba(255, 255, 255, 0.3);
             border-radius: 50%;
             transform: translate(-50%, -50%);
-            transition: width 0.6s ease, height 0.6s ease;
+            transition: width 0.6s ease, height 0.6s ease, opacity 0.6s ease;
             z-index: -1;
         }
 
         .hero .cta-button:hover::before, .hero .cta-button:focus::before {
             width: 300%;
             height: 300%;
+            opacity: 0;
         }
 
         .hero .cta-button:hover, .hero .cta-button:focus {
@@ -397,7 +406,7 @@
         }
 
         section h2 {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Exo 2', sans-serif;
             font-size: clamp(1.5rem, 5vw, 3.5rem);
             text-align: center;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
@@ -408,11 +417,12 @@
             position: relative;
             z-index: 2;
             text-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
-            transition: transform 0.4s ease;
+            transition: transform 0.4s ease, letter-spacing 0.4s ease;
         }
 
         section h2:hover {
             transform: scale(1.05);
+            letter-spacing: 2px;
         }
 
         section h2::after {
@@ -476,15 +486,16 @@
             padding: 2rem;
             text-align: center;
             position: relative;
-            transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
             overflow: hidden;
             box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            will-change: transform, box-shadow;
         }
 
         .pricing-card:hover {
             transform: translateY(-15px);
             box-shadow: 0 0 40px rgba(0, 212, 255, 0.6);
-            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary-color);
         }
 
         .pricing-card.best-value::before {
@@ -496,7 +507,7 @@
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             color: white;
             padding: 0.5rem 1.5rem;
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Exo 2', sans-serif;
             font-size: 0.9rem;
             text-transform: uppercase;
             border-radius: 0 0 10px 10px;
@@ -504,7 +515,7 @@
         }
 
         .pricing-card h3 {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Exo 2', sans-serif;
             font-size: clamp(1.2rem, 2.5vw, 1.8rem);
             margin-bottom: 0.5rem;
             color: var(--text-light);
@@ -518,7 +529,7 @@
         }
 
         .pricing-card .price {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Exo 2', sans-serif;
             font-size: clamp(1.8rem, 4vw, 3rem);
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
@@ -563,7 +574,7 @@
             padding: 0.8rem 2rem;
             text-decoration: none;
             border-radius: 30px;
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Exo 2', sans-serif;
             font-weight: 700;
             text-transform: uppercase;
             transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
@@ -571,6 +582,7 @@
             overflow: hidden;
             font-size: clamp(0.85rem, 1.8vw, 1rem);
             box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+            border: 1px solid transparent;
         }
 
         .pricing-card .cta-button::before {
@@ -580,22 +592,24 @@
             left: 50%;
             width: 0;
             height: 0;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 50%;
             transform: translate(-50%, -50%);
-            transition: width 0.6s ease, height 0.6s ease;
+            transition: width 0.6s ease, height 0.6s ease, opacity 0.6s ease;
             z-index: -1;
         }
 
         .pricing-card .cta-button:hover::before, .pricing-card .cta-button:focus::before {
             width: 300%;
             height: 300%;
+            opacity: 0;
         }
 
         .pricing-card .cta-button:hover, .pricing-card .cta-button:focus {
             transform: scale(1.1);
             box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
             background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            border-color: var(--primary-color);
         }
 
         .additional-info {
@@ -643,7 +657,7 @@
             color: var(--primary-color);
             text-decoration: none;
             font-weight: 600;
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Exo 2', sans-serif;
             font-size: clamp(0.9rem, 2.2vw, 1.2rem);
             padding: 0.6rem 1.2rem;
             border: 1px solid var(--primary-color);
@@ -665,13 +679,14 @@
             background: rgba(255, 255, 255, 0.2);
             border-radius: 50%;
             transform: translate(-50%, -50%);
-            transition: width 0.6s ease, height 0.6s ease;
+            transition: width 0.6s ease, height 0.6s ease, opacity 0.6s ease;
             z-index: -1;
         }
 
         .contact a:hover::before, .contact a:focus::before {
             width: 300%;
             height: 300%;
+            opacity: 0;
         }
 
         .contact a:hover, .contact a:focus {
@@ -960,7 +975,7 @@
     <script>
         particlesJS('particles-js', {
             particles: {
-                number: { value: 100, density: { enable: true, value_area: 800 } },
+                number: { value: 120, density: { enable: true, value_area: 800 } },
                 color: { value: ['#00d4ff', '#ff007a', '#ffaa00'] },
                 shape: { type: 'circle', stroke: { width: 0 } },
                 opacity: { value: 0.7, random: true },
@@ -970,8 +985,8 @@
             },
             interactivity: {
                 detect_on: 'canvas',
-                events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true },
-                modes: { repulse: { distance: 150, duration: 0.4 }, push: { particles_nb: 6 } }
+                events: { onhover: { enable: true, mode: 'grab' }, onclick: { enable: true, mode: 'push' }, resize: true },
+                modes: { grab: { distance: 150, line_linked: { opacity: 0.7 } }, push: { particles_nb: 6 } }
             },
             retina_detect: true
         });
@@ -1034,7 +1049,7 @@
                     section.classList.add('visible');
                 }
             });
-        }, 100));
+        }, 200));
 
         window.addEventListener('load', () => {
             document.querySelector('.hero').classList.add('visible');
