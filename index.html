@@ -455,7 +455,7 @@
             display: inline-block;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 0.6rem 1.2rem;
+            padding: 0.8rem 1.5rem;
             text-decoration: none;
             border-radius: 25px;
             font-family: 'Orbitron', sans-serif;
@@ -464,8 +464,11 @@
             transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
             overflow: hidden;
-            font-size: clamp(0.8rem, 2vw, 1rem);
+            font-size: clamp(0.75rem, 1.8vw, 0.9rem);
             white-space: nowrap;
+            text-overflow: ellipsis;
+            max-width: 90%;
+            margin: 0 auto;
         }
 
         .pricing-card .cta-button::before {
@@ -623,6 +626,12 @@
                 gap: 2rem;
             }
 
+            .pricing-card .cta-button {
+                padding: 0.8rem 2rem;
+                font-size: clamp(0.9rem, 1.5vw, 1rem);
+                max-width: 80%;
+            }
+
             .contact-links {
                 gap: 1.5rem;
                 padding: 0;
@@ -680,8 +689,9 @@
             }
 
             .pricing-card .cta-button {
-                padding: 0.5rem 1rem;
-                font-size: 0.85rem;
+                padding: 0.6rem 1rem;
+                font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+                max-width: 95%;
             }
         }
     </style>
