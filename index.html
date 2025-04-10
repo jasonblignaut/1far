@@ -38,16 +38,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
     <title>1FAR - One For A Reason | Affordable Web Design for Small Businesses</title>
     <style>
         :root {
             --primary-color: #00d4ff;
             --secondary-color: #ff007a;
+            --tertiary-color: #ffaa00;
             --bg-dark: #0a0a1b;
             --card-bg: rgba(255, 255, 255, 0.05);
             --text-light: #ffffff;
             --text-muted: #d0d0d0;
-            --glow-intensity: 10px;
+            --glow-intensity: 15px;
         }
 
         * {
@@ -80,11 +82,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, rgba(0, 212, 255, 0.05) 1px, transparent 1px),
-                        linear-gradient(0deg, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
-            background-size: 40px 40px;
+            background: linear-gradient(45deg, rgba(0, 212, 255, 0.05) 1px, transparent 1px),
+                        linear-gradient(135deg, rgba(255, 0, 122, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
             z-index: -1;
-            opacity: 0.3;
+            opacity: 0.4;
         }
 
         #particles-js {
@@ -106,22 +108,24 @@
             justify-content: center;
             align-items: center;
             transition: opacity 0.8s ease;
-            will-change: opacity;
+            will-change: transform, opacity;
         }
 
         .background-video {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.7) contrast(1.2);
+            filter: brightness(0.8) contrast(1.3);
+            transform: scale(1.05);
         }
 
         .background::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 0, 122, 0.1));
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(255, 0, 122, 0.15));
             z-index: -1;
+            opacity: 0.7;
         }
 
         .whatsapp-float {
@@ -129,17 +133,17 @@
             bottom: 20px;
             left: 20px;
             z-index: 1000;
-            transition: transform 0.3s ease, opacity 0.3s ease;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
 
         .whatsapp-float:hover, .whatsapp-float:focus {
-            transform: scale(1.2) rotate(10deg);
-            opacity: 0.9;
+            transform: scale(1.3) rotate(15deg);
+            box-shadow: 0 0 20px var(--primary-color);
         }
 
         .whatsapp-float img {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
         }
 
         header {
@@ -152,11 +156,13 @@
             justify-content: center;
             align-items: center;
             z-index: 1000;
-            transition: opacity 0.3s ease, transform 0.3s ease;
+            background: rgba(10, 10, 27, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+            transition: transform 0.3s ease;
         }
 
         header.hidden {
-            opacity: 0;
             transform: translateY(-100%);
         }
 
@@ -168,9 +174,11 @@
             top: 60px;
             left: 0;
             width: 100%;
-            background: rgba(10, 10, 27, 0.9);
+            background: rgba(10, 10, 27, 0.95);
             padding: 1rem;
             z-index: 999;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
         }
 
         nav.active {
@@ -180,9 +188,9 @@
         nav a {
             color: var(--text-light);
             text-decoration: none;
-            margin: 0.8rem 0;
+            margin: 1rem 0;
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(1rem, 3vw, 1.2rem);
+            font-size: clamp(1rem, 3vw, 1.3rem);
             text-transform: uppercase;
             position: relative;
             transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
@@ -192,21 +200,22 @@
             content: '';
             position: absolute;
             width: 0;
-            height: 2px;
-            bottom: -5px;
+            height: 3px;
+            bottom: -8px;
             left: 0;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            transition: width 0.3s ease;
+            transition: width 0.4s ease, box-shadow 0.4s ease;
         }
 
         nav a:hover::after, nav a:focus::after {
             width: 100%;
+            box-shadow: 0 0 10px var(--primary-color);
         }
 
         nav a:hover, nav a:focus {
             color: var(--primary-color);
-            transform: scale(1.1);
-            text-shadow: 0 0 10px var(--primary-color);
+            transform: scale(1.1) translateY(-2px);
+            text-shadow: 0 0 15px var(--primary-color);
         }
 
         .hamburger {
@@ -214,13 +223,13 @@
             cursor: pointer;
             font-size: clamp(1.5rem, 4vw, 2rem);
             color: var(--text-light);
-            transition: transform 0.3s ease, text-shadow 0.3s ease;
+            transition: transform 0.4s ease, text-shadow 0.4s ease;
             padding: 0.5rem;
         }
 
         .hamburger:hover, .hamburger:focus {
-            transform: scale(1.2) rotate(90deg);
-            text-shadow: 0 0 10px var(--primary-color);
+            transform: rotate(180deg);
+            text-shadow: 0 0 15px var(--primary-color);
         }
 
         .hero {
@@ -234,7 +243,7 @@
             position: relative;
             overflow: hidden;
             opacity: 0;
-            animation: fadeIn 1.5s forwards 1s;
+            animation: fadeIn 1.5s forwards 0.5s;
             z-index: 1;
             will-change: opacity, transform;
         }
@@ -242,27 +251,34 @@
         .hero::before {
             content: '';
             position: absolute;
-            width: 300%;
-            height: 300%;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.2), transparent 70%);
-            animation: heroPulse 8s infinite ease-in-out;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.25), transparent 70%);
+            animation: heroPulse 10s infinite ease-in-out;
             z-index: -1;
         }
 
         @keyframes heroPulse {
-            0% { transform: scale(1) translateX(-50%) translateY(-50%); opacity: 0.2; }
-            50% { transform: scale(1.05) translateX(-50%) translateY(-50%); opacity: 0.4; }
-            100% { transform: scale(1) translateX(-50%) translateY(-50%); opacity: 0.2; }
+            0% { transform: scale(1) translateX(-50%) translateY(-50%); opacity: 0.25; }
+            50% { transform: scale(1.1) translateX(-50%) translateY(-50%); opacity: 0.5; }
+            100% { transform: scale(1) translateX(-50%) translateY(-50%); opacity: 0.25; }
         }
 
         .hero .title-wrapper {
             position: relative;
             display: inline-flex;
             padding: 0.5rem 1rem;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
             z-index: 2;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .hero .title-wrapper:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.5);
         }
 
         .hero .title-container {
@@ -277,46 +293,30 @@
         .hero .title-container span {
             font-family: 'Orbitron', sans-serif;
             font-size: clamp(1.5rem, 6vw, 4rem);
-            background: linear-gradient(90deg, #00d4ff, #ff007a, #ffaa00, #00d4ff);
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--tertiary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
             z-index: 2;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             font-weight: 900;
-            animation: textColorWave 15s linear infinite;
+            animation: glowWave 10s ease-in-out infinite;
         }
 
-        @keyframes textColorWave {
-            0% {
-                background: linear-gradient(90deg, #00d4ff, #ff007a, #ffaa00, #00d4ff);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
-            33% {
-                background: linear-gradient(90deg, #ff007a, #ffaa00, #00d4ff, #ff007a);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
-            66% {
-                background: linear-gradient(90deg, #ffaa00, #00d4ff, #ff007a, #ffaa00);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
-            100% {
-                background: linear-gradient(90deg, #00d4ff, #ff007a, #ffaa00, #00d4ff);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
+        @keyframes glowWave {
+            0% { text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color), 0 0 30px var(--primary-color); }
+            33% { text-shadow: 0 0 10px var(--secondary-color), 0 0 20px var(--secondary-color), 0 0 30px var(--secondary-color); }
+            66% { text-shadow: 0 0 10px var(--tertiary-color), 0 0 20px var(--tertiary-color), 0 0 30px var(--tertiary-color); }
+            100% { text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color), 0 0 30px var(--primary-color); }
         }
 
         .hero .tagline {
             font-family: 'Roboto', sans-serif;
-            font-size: clamp(0.9rem, 2.5vw, 1.5rem);
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
             color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            text-shadow: 0 0 5px rgba(0, 212, 255, 0.3);
-            transition: transform 0.3s ease;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
+            transition: transform 0.4s ease;
         }
 
         .hero .tagline:hover {
@@ -326,48 +326,53 @@
         .hero .cta-button {
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 0.8rem 2rem;
+            padding: 1rem 2.5rem;
             text-decoration: none;
-            border-radius: 30px;
+            border-radius: 50px;
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             text-transform: uppercase;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
+            transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
             position: relative;
             overflow: hidden;
             z-index: 2;
-            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            border: 1px solid var(--primary-color);
         }
 
         .hero .cta-button::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: left 0.3s ease;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+            z-index: -1;
         }
 
         .hero .cta-button:hover::before, .hero .cta-button:focus::before {
-            left: 100%;
+            width: 300%;
+            height: 300%;
         }
 
         .hero .cta-button:hover, .hero .cta-button:focus {
-            transform: scale(1.1) rotate(2deg);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+            transform: scale(1.15);
+            box-shadow: 0 0 25px var(--primary-color);
             background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
         }
 
         @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
+            0% { opacity: 0; transform: translateY(30px); }
             100% { opacity: 1; transform: translateY(0); }
         }
 
         section {
-            padding: 2rem 1rem;
-            max-width: 1200px;
+            padding: 3rem 1rem;
+            max-width: 1400px;
             margin: 0 auto;
             scroll-margin-top: 80px;
             position: relative;
@@ -378,39 +383,32 @@
             justify-content: center;
             align-items: center;
             opacity: 0;
-            animation: sectionFadeIn 0.8s ease forwards;
-            border: 1px solid rgba(0, 212, 255, 0.1);
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
-            transition: transform 0.5s ease;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            background: rgba(10, 10, 27, 0.5);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
         }
 
         section.visible {
-            animation: sectionFadeIn 0.8s ease forwards;
-        }
-
-        section:hover {
-            transform: translateY(-5px);
-        }
-
-        @keyframes sectionFadeIn {
-            0% { opacity: 0; transform: translateY(30px) scale(0.98); }
-            100% { opacity: 1; transform: translateY(0) scale(1); }
+            opacity: 1;
+            transform: translateY(0);
         }
 
         section h2 {
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(1.2rem, 5vw, 3rem);
+            font-size: clamp(1.5rem, 5vw, 3.5rem);
             text-align: center;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             text-transform: uppercase;
             position: relative;
             z-index: 2;
-            text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
-            transition: transform 0.3s ease;
+            text-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+            transition: transform 0.4s ease;
         }
 
         section h2:hover {
@@ -420,50 +418,51 @@
         section h2::after {
             content: '';
             position: absolute;
-            width: 50%;
-            height: 2px;
-            bottom: -10px;
-            left: 25%;
-            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
-            animation: underlinePulse 2s infinite ease;
+            width: 60%;
+            height: 3px;
+            bottom: -15px;
+            left: 20%;
+            background: linear-gradient(90deg, transparent, var(--primary-color), var(--secondary-color), transparent);
+            animation: underlinePulse 3s infinite ease-in-out;
             z-index: 2;
         }
 
         @keyframes underlinePulse {
-            0% { width: 50%; opacity: 1; }
-            50% { width: 70%; opacity: 0.5; }
-            100% { width: 50%; opacity: 1; }
+            0% { width: 60%; opacity: 1; }
+            50% { width: 80%; opacity: 0.7; }
+            100% { width: 60%; opacity: 1; }
         }
 
         .intro {
-            background: rgba(26, 26, 46, 0.5);
-            backdrop-filter: blur(10px);
+            background: rgba(26, 26, 46, 0.6);
+            backdrop-filter: blur(15px);
             border-radius: 20px;
-            padding: 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             max-width: 90%;
             text-align: center;
             margin-bottom: 2rem;
-            box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
-            transition: transform 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
 
         .intro:hover {
-            transform: scale(1.02);
+            transform: scale(1.03);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
         }
 
         .intro p {
             line-height: 1.8;
             color: var(--text-muted);
-            font-size: clamp(0.85rem, 2.2vw, 1rem);
+            font-size: clamp(0.9rem, 2.2vw, 1.1rem);
             margin-bottom: 1rem;
-            text-shadow: 0 0 5px rgba(0, 212, 255, 0.1);
+            text-shadow: 0 0 5px rgba(0, 212, 255, 0.2);
         }
 
         .pricing {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 2rem;
             width: 100%;
             max-width: 100%;
             margin: 0 auto;
@@ -471,47 +470,47 @@
 
         .pricing-card {
             background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 1.5rem;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
             text-align: center;
             position: relative;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
+            transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
             overflow: hidden;
-            box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
         }
 
         .pricing-card:hover {
-            transform: translateY(-10px) rotate(1deg);
-            box-shadow: 0 0 25px rgba(0, 212, 255, 0.4);
-            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-15px);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.6);
+            background: rgba(255, 255, 255, 0.1);
         }
 
         .pricing-card.best-value::before {
             content: 'Best Value';
             position: absolute;
-            top: 0;
+            top: -10px;
             left: 50%;
             transform: translateX(-50%);
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 0.4rem 1rem;
+            padding: 0.5rem 1.5rem;
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
-            border-radius: 0;
-            box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
         }
 
         .pricing-card h3 {
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
             margin-bottom: 0.5rem;
             color: var(--text-light);
-            text-shadow: 0 0 5px rgba(0, 212, 255, 0.2);
-            margin-top: 1rem;
-            transition: transform 0.3s ease;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+            margin-top: 1.5rem;
+            transition: transform 0.4s ease;
         }
 
         .pricing-card:hover h3 {
@@ -520,95 +519,96 @@
 
         .pricing-card .price {
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-size: clamp(1.8rem, 4vw, 3rem);
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
         }
 
         .pricing-card ul {
             list-style: none;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             text-align: left;
             color: var(--text-muted);
-            font-size: clamp(0.8rem, 2vw, 0.95rem);
+            font-size: clamp(0.85rem, 2vw, 1rem);
         }
 
         .pricing-card ul li {
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.6rem;
             position: relative;
-            padding-left: 1.2rem;
-            transition: color 0.3s ease;
+            padding-left: 1.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .pricing-card ul li:hover {
             color: var(--primary-color);
+            transform: translateX(5px);
         }
 
         .pricing-card ul li::before {
-            content: '+';
+            content: '→';
             position: absolute;
             left: 0;
             color: var(--primary-color);
             font-weight: bold;
-            text-shadow: 0 0 5px rgba(0, 212, 255, 0.2);
+            text-shadow: 0 0 5px rgba(0, 212, 255, 0.3);
         }
 
         .pricing-card .cta-button {
             display: inline-block;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 0.8rem 1.5rem;
+            padding: 0.8rem 2rem;
             text-decoration: none;
-            border-radius: 25px;
+            border-radius: 30px;
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             text-transform: uppercase;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
+            transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
             position: relative;
             overflow: hidden;
-            font-size: clamp(0.75rem, 1.8vw, 0.9rem);
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            max-width: 90%;
-            margin: 0 auto;
-            box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+            font-size: clamp(0.85rem, 1.8vw, 1rem);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
         }
 
         .pricing-card .cta-button::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: left 0.3s ease;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+            z-index: -1;
         }
 
         .pricing-card .cta-button:hover::before, .pricing-card .cta-button:focus::before {
-            left: 100%;
+            width: 300%;
+            height: 300%;
         }
 
         .pricing-card .cta-button:hover, .pricing-card .cta-button:focus {
-            transform: scale(1.1) rotate(3deg);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
             background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
         }
 
         .additional-info {
-            margin-top: 1.5rem;
+            margin-top: 2rem;
             text-align: center;
             color: var(--text-muted);
-            font-size: clamp(0.85rem, 2.2vw, 1rem);
-            text-shadow: 0 0 5px rgba(0, 212, 255, 0.1);
-            transition: transform 0.3s ease;
+            font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+            text-shadow: 0 0 5px rgba(0, 212, 255, 0.2);
+            transition: transform 0.4s ease;
         }
 
         .additional-info:hover {
-            transform: translateY(-3px);
+            transform: scale(1.02);
         }
 
         .contact {
@@ -618,24 +618,24 @@
 
         .contact p {
             color: var(--text-muted);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             max-width: 90%;
             margin-left: auto;
             margin-right: auto;
-            font-size: clamp(0.85rem, 2.2vw, 1rem);
-            text-shadow: 0 0 5px rgba(0, 212, 255, 0.1);
-            transition: transform 0.3s ease;
+            font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+            text-shadow: 0 0 5px rgba(0, 212, 255, 0.2);
+            transition: transform 0.4s ease;
         }
 
         .contact p:hover {
-            transform: scale(1.02);
+            transform: translateY(-5px);
         }
 
         .contact-links {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 0.8rem;
+            gap: 1rem;
             padding: 0 0.5rem;
         }
 
@@ -644,88 +644,91 @@
             text-decoration: none;
             font-weight: 600;
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(0.8rem, 2.2vw, 1rem);
-            padding: 0.4rem 0.8rem;
+            font-size: clamp(0.9rem, 2.2vw, 1.2rem);
+            padding: 0.6rem 1.2rem;
             border: 1px solid var(--primary-color);
-            border-radius: 20px;
-            transition: color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+            border-radius: 25px;
+            transition: color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
             position: relative;
             overflow: hidden;
             z-index: 2;
-            box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
         }
 
         .contact a::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.3s ease;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
             z-index: -1;
         }
 
         .contact a:hover::before, .contact a:focus::before {
-            left: 100%;
+            width: 300%;
+            height: 300%;
         }
 
         .contact a:hover, .contact a:focus {
             color: var(--secondary-color);
-            box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
-            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
+            transform: scale(1.15);
         }
 
         footer {
             position: relative;
-            background: linear-gradient(180deg, rgba(26, 26, 46, 0.5), rgba(0, 212, 255, 0.1));
-            backdrop-filter: blur(10px);
-            padding: 1.5rem 1rem;
+            background: linear-gradient(180deg, rgba(26, 26, 46, 0.6), rgba(0, 212, 255, 0.15));
+            backdrop-filter: blur(15px);
+            padding: 2rem 1rem;
             text-align: center;
-            border-top: 1px solid rgba(0, 212, 255, 0.2);
+            border-top: 1px solid rgba(0, 212, 255, 0.3);
             z-index: 1;
             width: 100%;
             margin: 0 auto;
-            box-shadow: 0 -5px 20px rgba(0, 212, 255, 0.2);
-            transition: transform 0.3s ease;
+            box-shadow: 0 -10px 30px rgba(0, 212, 255, 0.3);
+            transition: transform 0.4s ease;
         }
 
         footer:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px);
         }
 
         footer p {
             color: var(--text-muted);
-            font-size: clamp(0.75rem, 1.8vw, 0.9rem);
-            margin-bottom: 0.8rem;
-            text-shadow: 0 0 5px rgba(0, 212, 255, 0.1);
+            font-size: clamp(0.85rem, 1.8vw, 1rem);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 5px rgba(0, 212, 255, 0.2);
         }
 
         footer .footer-links {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 0.8rem;
+            gap: 1rem;
         }
 
         footer a {
             color: var(--primary-color);
             text-decoration: none;
-            font-size: clamp(0.8rem, 2vw, 1rem);
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
             position: relative;
-            transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+            transition: color 0.4s ease, text-shadow 0.4s ease, transform 0.4s ease;
         }
 
         footer a::after {
             content: '';
             position: absolute;
             width: 0;
-            height: 1px;
-            bottom: -2px;
+            height: 2px;
+            bottom: -5px;
             left: 0;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            transition: width 0.3s ease;
+            transition: width 0.4s ease;
         }
 
         footer a:hover::after, footer a:focus::after {
@@ -733,8 +736,8 @@
         }
 
         footer a:hover, footer a:focus {
-            color: var(--secondary-color);
-            text-shadow: 0 0 10px var(--secondary-color);
+            color: var(--tertiary-color);
+            text-shadow: 0 0 15px var(--tertiary-color);
             transform: scale(1.1);
         }
 
@@ -753,10 +756,12 @@
                 position: static;
                 padding: 0;
                 background: none;
+                border: none;
+                box-shadow: none;
             }
 
             nav a {
-                margin: 0 1.5rem;
+                margin: 0 2rem;
             }
 
             .hero {
@@ -765,13 +770,13 @@
 
             .pricing {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 2rem;
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: 2.5rem;
             }
 
             .pricing-card .cta-button {
-                padding: 0.8rem 2rem;
-                font-size: clamp(0.9rem, 1.5vw, 1rem);
+                padding: 1rem 2.5rem;
+                font-size: clamp(0.9rem, 1.5vw, 1.1rem);
                 max-width: 80%;
             }
 
@@ -783,7 +788,7 @@
 
         @media (max-width: 767px) {
             nav a {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
 
             .hero {
@@ -799,41 +804,41 @@
             }
 
             .hero .cta-button {
-                padding: 0.6rem 1.5rem;
+                padding: 0.8rem 2rem;
                 font-size: 0.9rem;
             }
 
             section {
-                padding: 1.5rem 0.5rem;
+                padding: 2rem 0.5rem;
             }
 
             .intro {
-                padding: 1rem;
+                padding: 1.5rem;
             }
 
             .pricing-card {
-                padding: 1rem;
+                padding: 1.5rem;
             }
 
             .pricing-card h3 {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
             }
 
             .pricing-card .price {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
             .pricing-card ul {
-                margin-bottom: 1rem;
+                margin-bottom: 1.5rem;
             }
 
             .pricing-card ul li {
-                font-size: 0.85rem;
+                font-size: 0.9rem;
             }
 
             .pricing-card .cta-button {
-                padding: 0.6rem 1rem;
-                font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+                padding: 0.8rem 1.5rem;
+                font-size: clamp(0.8rem, 1.5vw, 0.9rem);
                 max-width: 95%;
             }
 
@@ -843,8 +848,8 @@
             }
 
             .whatsapp-float img {
-                width: 30px;
-                height: 30px;
+                width: 35px;
+                height: 35px;
             }
         }
     </style>
@@ -884,7 +889,7 @@
     <section id="pricing">
         <h2>Our Pricing Packages</h2>
         <div class="pricing">
-            <div class="pricing-card">
+            <div class="pricing-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
                 <h3>Silver Package</h3>
                 <div class="price">R5999</div>
                 <ul>
@@ -905,7 +910,7 @@
                 </ul>
                 <a href="mailto:1fardigital@gmail.com?subject=Silver Package Inquiry" class="cta-button">Email Us</a>
             </div>
-            <div class="pricing-card best-value">
+            <div class="pricing-card best-value" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
                 <h3>Gold Package</h3>
                 <div class="price">R9999</div>
                 <ul>
@@ -918,7 +923,7 @@
                 </ul>
                 <a href="mailto:1fardigital@gmail.com?subject=Gold Package Inquiry" class="cta-button">Email Us</a>
             </div>
-            <div class="pricing-card">
+            <div class="pricing-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
                 <h3>Platinum Package</h3>
                 <div class="price">R17999</div>
                 <ul>
@@ -955,20 +960,27 @@
     <script>
         particlesJS('particles-js', {
             particles: {
-                number: { value: 80, density: { enable: true, value_area: 800 } },
+                number: { value: 100, density: { enable: true, value_area: 800 } },
                 color: { value: ['#00d4ff', '#ff007a', '#ffaa00'] },
-                shape: { type: 'circle' },
-                opacity: { value: 0.6, random: true },
-                size: { value: 4, random: true },
-                line_linked: { enable: true, distance: 150, color: '#00d4ff', opacity: 0.3, width: 1 },
-                move: { enable: true, speed: 3, direction: 'none', random: true, straight: false, out_mode: 'out' }
+                shape: { type: 'circle', stroke: { width: 0 } },
+                opacity: { value: 0.7, random: true },
+                size: { value: 5, random: true },
+                line_linked: { enable: true, distance: 120, color: '#00d4ff', opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 4, direction: 'none', random: true, straight: false, out_mode: 'out', bounce: false }
             },
             interactivity: {
                 detect_on: 'canvas',
-                events: { onhover: { enable: true, mode: 'grab' }, onclick: { enable: true, mode: 'push' }, resize: true },
-                modes: { grab: { distance: 200, line_linked: { opacity: 0.7 } }, push: { particles_nb: 5 } }
+                events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true },
+                modes: { repulse: { distance: 150, duration: 0.4 }, push: { particles_nb: 6 } }
             },
             retina_detect: true
+        });
+
+        VanillaTilt.init(document.querySelectorAll('.pricing-card'), {
+            max: 10,
+            speed: 400,
+            glare: true,
+            'max-glare': 0.5
         });
 
         const hamburger = document.querySelector('.hamburger');
@@ -1002,9 +1014,11 @@
         window.addEventListener('scroll', throttle(() => {
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             const background = document.querySelector('.background');
+            const video = document.querySelector('.background-video');
             const fadeOutPoint = window.innerHeight * 0.5;
             const opacity = Math.max(0, 1 - scrollTop / fadeOutPoint);
             background.style.opacity = opacity;
+            video.style.transform = `scale(1.05) translateY(${scrollTop * 0.1}px)`; // Parallax effect
 
             if (scrollTop > lastScrollTop) {
                 document.querySelector('header').classList.add('hidden');
@@ -1016,11 +1030,11 @@
             const sections = document.querySelectorAll('section');
             sections.forEach(section => {
                 const rect = section.getBoundingClientRect();
-                if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                if (rect.top <= window.innerHeight * 0.8 && rect.bottom >= 0) {
                     section.classList.add('visible');
                 }
             });
-        }, 150));
+        }, 100));
 
         window.addEventListener('load', () => {
             document.querySelector('.hero').classList.add('visible');
