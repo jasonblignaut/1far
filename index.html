@@ -177,7 +177,7 @@
         }
 
         nav a {
-            color: var(--text-light很是);
+            color: var(--text-light);
             text-decoration: none;
             margin: 0.8rem 0;
             font-family: 'Orbitron', sans-serif;
@@ -260,48 +260,47 @@
             background: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
             z-index: 2;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
         }
 
         .hero .title-container {
+            position: relative;
             display: flex;
             flex-direction: row;
             gap: 0.5rem;
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
+            z-index: 2;
+        }
+
+        .hero .gradient-bg {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 300%;
+            height: 100%;
+            background: linear-gradient(90deg, #00d4ff, #ff007a, #ffaa00, #00d4ff, #00d4ff);
+            animation: gradientWave 20s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes gradientWave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
         }
 
         .hero .title-container span {
             font-family: 'Orbitron', sans-serif;
             font-size: clamp(1.5rem, 6vw, 4rem);
-            background: linear-gradient(90deg, #00d4ff, #ff007a, #ffaa00, #00d4ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: transparent;
             -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
-            z-index: 2;
             letter-spacing: 2px;
             font-weight: 900;
-            text-shadow: 
-                0 0 10px rgba(0, 212, 255, 0.5),
-                0 0 20px rgba(255, 0, 122, 0.4),
-                0 0 30px rgba(255, 170, 0, 0.3);
-            animation: neonGlow 2s infinite alternate;
-        }
-
-        @keyframes neonGlow {
-            0% { 
-                text-shadow: 
-                    0 0 10px rgba(0, 212, 255, 0.5),
-                    0 0 20px rgba(255, 0, 122, 0.4),
-                    0 0 30px rgba(255, 170, 0, 0.3);
-            }
-            100% { 
-                text-shadow: 
-                    0 0 15px rgba(0, 212, 255, 0.7),
-                    0 0 25px rgba(255, 0, 122, 0.6),
-                    0 0 35px rgba(255, 170, 0, 0.5);
-            }
+            z-index: 2;
+            mix-blend-mode: screen;
+            filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.3));
         }
 
         .hero .tagline {
@@ -482,7 +481,7 @@
             margin-bottom: 0.5rem;
             color: var(--text-light);
             text-shadow: 0 0 5px rgba(0, 212, 255, 0.2);
-            margin-top: 1rem; /* Added to prevent overlap with Best Value */
+            margin-top: 1rem;
         }
 
         .pricing-card .price {
@@ -809,13 +808,14 @@
         <div class="hamburger" role="button" aria-expanded="false" aria-label="Toggle navigation">☰</div>
         <nav>
             <a href="#services">Services</a>
-            <a href="#pricing">Pricing</a>
+Bennett: <a href="#pricing">Pricing</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
     <section class="hero" id="main-content">
         <div class="title-wrapper">
             <div class="title-container">
+                <div class="gradient-bg"></div>
                 <span>1FAR</span>
             </div>
         </div>
